@@ -1,0 +1,279 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Base styles */
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+  
+  /* Aviation-specific typography */
+  .aviation-identifier {
+    @apply font-mono font-semibold tracking-wide uppercase;
+  }
+  
+  .weather-data {
+    @apply font-mono text-sm leading-tight;
+  }
+  
+  .critical-text {
+    @apply font-bold text-aviation-critical;
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* Touch-optimized controls */
+  .touch-target {
+    @apply min-h-touch-md min-w-touch-md;
+    -webkit-tap-highlight-color: rgba(74, 184, 253, 0.2);
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  .critical-control {
+    @apply min-h-touch-xl min-w-touch-xl text-lg font-bold;
+  }
+  
+  /* Map container */
+  .map-container {
+    @apply relative w-full h-full bg-gray-100;
+  }
+  
+  .map-controls {
+    @apply absolute z-10 pointer-events-none;
+  }
+  
+  .map-controls > * {
+    @apply pointer-events-auto;
+  }
+  
+  /* Weather condition indicators */
+  .weather-vfr {
+    @apply text-aviation-vfr border-aviation-vfr;
+  }
+  
+  .weather-mvfr {
+    @apply text-aviation-mvfr border-aviation-mvfr;
+  }
+  
+  .weather-ifr {
+    @apply text-aviation-ifr border-aviation-ifr;
+  }
+  
+  .weather-lifr {
+    @apply text-aviation-lifr border-aviation-lifr;
+  }
+  
+  /* NOTAM severity indicators */
+  .notam-critical {
+    @apply border-l-4 border-aviation-critical bg-red-50;
+  }
+  
+  .notam-high {
+    @apply border-l-4 border-aviation-high bg-orange-50;
+  }
+  
+  .notam-medium {
+    @apply border-l-4 border-aviation-medium bg-yellow-50;
+  }
+  
+  .notam-low {
+    @apply border-l-4 border-aviation-low bg-green-50;
+  }
+  
+  /* Loading states */
+  .loading-spinner {
+    @apply animate-spin;
+  }
+  
+  .loading-pulse {
+    @apply animate-pulse-slow;
+  }
+  
+  /* Weight & balance indicators */
+  .wb-within-limits {
+    @apply text-green-600 font-semibold;
+  }
+  
+  .wb-near-limits {
+    @apply text-yellow-600 font-semibold;
+  }
+  
+  .wb-over-limits {
+    @apply text-red-600 font-bold animate-pulse;
+  }
+  
+  /* Form controls */
+  .form-input {
+    @apply block w-full rounded-md border-gray-300 shadow-sm 
+           focus:border-primary-500 focus:ring-primary-500
+           disabled:bg-gray-100 disabled:text-gray-500;
+  }
+  
+  .form-select {
+    @apply block w-full rounded-md border-gray-300 shadow-sm
+           focus:border-primary-500 focus:ring-primary-500
+           disabled:bg-gray-100 disabled:text-gray-500;
+  }
+  
+  .form-checkbox {
+    @apply rounded border-gray-300 text-primary-600 shadow-sm
+           focus:border-primary-500 focus:ring-primary-500;
+  }
+  
+  /* Button styles */
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 focus:ring-primary-500
+           text-white font-medium px-4 py-2 rounded-md
+           focus:outline-none focus:ring-2 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-600 hover:bg-gray-700 focus:ring-gray-500
+           text-white font-medium px-4 py-2 rounded-md
+           focus:outline-none focus:ring-2 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-colors duration-200;
+  }
+  
+  .btn-outline {
+    @apply border border-gray-300 hover:bg-gray-50 focus:ring-primary-500
+           text-gray-700 font-medium px-4 py-2 rounded-md
+           focus:outline-none focus:ring-2 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-colors duration-200;
+  }
+  
+  /* Card styles */
+  .card {
+    @apply bg-white shadow-sm rounded-lg border border-gray-200;
+  }
+  
+  .card-header {
+    @apply px-4 py-3 border-b border-gray-200 bg-gray-50 rounded-t-lg;
+  }
+  
+  .card-body {
+    @apply p-4;
+  }
+  
+  .card-footer {
+    @apply px-4 py-3 border-t border-gray-200 bg-gray-50 rounded-b-lg;
+  }
+  
+  /* Panel styles */
+  .panel {
+    @apply bg-white shadow-lg rounded-lg border border-gray-200
+           overflow-hidden;
+  }
+  
+  .panel-header {
+    @apply px-4 py-3 bg-primary-600 text-white font-medium
+           flex items-center justify-between;
+  }
+  
+  .panel-body {
+    @apply p-4 max-h-96 overflow-y-auto;
+  }
+}
+
+/* Utility styles */
+@layer utilities {
+  /* Night vision mode */
+  [data-theme="night"] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(26 0 0 / var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgb(255 136 136 / var(--tw-text-opacity));
+  }
+  
+  [data-theme="night"] .card {
+    --tw-bg-opacity: 1;
+    background-color: rgb(42 0 0 / var(--tw-bg-opacity));
+    --tw-border-opacity: 1;
+    border-color: rgb(74 0 0 / var(--tw-border-opacity));
+  }
+  
+  [data-theme="night"] .btn-primary {
+    --tw-bg-opacity: 1;
+    background-color: rgb(74 0 0 / var(--tw-bg-opacity));
+  }
+  
+  [data-theme="night"] .btn-primary:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(102 0 0 / var(--tw-bg-opacity));
+  }
+  
+  /* Scrollbar styles */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+  }
+  
+  /* Focus styles for accessibility */
+  .focus-visible {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .card {
+      @apply border-2 border-gray-800;
+    }
+    
+    .btn-primary {
+      @apply border-2 border-primary-800;
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    
+    .print-break-before {
+      page-break-before: always;
+    }
+    
+    .print-break-after {
+      page-break-after: always;
+    }
+  }
+}

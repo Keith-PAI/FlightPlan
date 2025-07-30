@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- PAI Consulting FlightPlan Meta -->
+    <title>FlightPlan - General Aviation Flight Planning</title>
+    <meta name="description" content="Professional flight planning tool for general aviation pilots. Features comprehensive weather, NOTAMs, weight & balance, and route optimization." />
+    <meta name="keywords" content="flight planning, aviation, weather, NOTAMs, general aviation, pilot tools" />
+    <meta name="author" content="PAI Consulting - Keith Estes" />
+    
+    <!-- Progressive Web App -->
+    <meta name="theme-color" content="#033668" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://api.mapbox.com;
+      style-src 'self' 'unsafe-inline' https://api.mapbox.com https://fonts.googleapis.com;
+      img-src 'self' data: https: blob:;
+      connect-src 'self' 
+        https://api.faa.gov 
+        https://aviationweather.gov 
+        https://api.mapbox.com
+        wss://events.mapbox.com;
+      font-src 'self' https://fonts.gstatic.com;
+      frame-ancestors 'self' https://*.squarespace.com;
+    " />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Mapbox CSS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet" />
+    
+    <!-- Leaflet CSS (fallback) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.0/dist/leaflet.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

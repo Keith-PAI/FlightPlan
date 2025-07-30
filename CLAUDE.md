@@ -8,6 +8,10 @@ This is a General Aviation Flight Planning Web Application for PAI Consulting, i
 
 The app aims to differentiate itself by offering clean, uncluttered interface design with features that pilots consistently request but find lacking in existing tools - particularly better NOTAM visualization, simplified UX design, and strong integration capabilities with existing EFB apps like ForeFlight and Garmin Pilot.
 
+## Repository References
+
+- GitHub Repository: https://github.com/Keith-PAI/FlightPlan
+
 ## Architecture & Technology Stack
 
 ### Frontend Framework
